@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Economías Regionales · Marco Normativo Argentina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&family=IBM+Plex+Serif:wght@300;400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:        #0d0f0e;
+    --surface:   #141716;
+    --panel:     #1a1e1c;
+    --border:    #272c29;
+    --border-hi: #3a4038;
+    --text:      #cdd4ce;
+    --muted:     #6e7a70;
+    --lead:      #e8ede9;
+    --accent:    #7eb87a;     /* verde campo */
+    --accent2:   #c8a96e;     /* dorado cosecha */
+    --accent3:   #6e9bb8;     /* azul institucional */
+    --danger:    #c86e6e;
+    --mono:      'IBM Plex Mono', monospace;
+    --sans:      'IBM Plex Sans', sans-serif;
+    --serif:     'IBM Plex Serif', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── HEADER ─────────────────────────────────── */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    padding: 0 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    background: rgba(13,15,14,.92);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+  }
+  .header-brand {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .header-sep { flex: 1; }
+  .header-nav {
+    display: flex;
+    gap: 1.6rem;
+    list-style: none;
+  }
+  .header-nav a {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .header-nav a:hover { color: var(--accent); }
+
+  /* ─── HERO ───────────────────────────────────── */
+  .hero {
+    padding: 5rem 2.5rem 3.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--lead);
+    line-height: 1.18;
+    max-width: 700px;
+    margin-bottom: 1.4rem;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent2);
+  }
+  .hero-sub {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 620px;
+    line-height: 1.75;
+    margin-bottom: 2.2rem;
+  }
+
+  /* ─── NORMAS BADGE STRIP ──────────────────────── */
+  .normas-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem;
+    margin-bottom: .5rem;
+  }
+  .badge {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: .35rem .85rem;
+    border-radius: 2px;
+    border: 1px solid;
+    cursor: default;
+  }
+  .badge-green  { color: var(--accent);  border-color: var(--accent);  background: rgba(126,184,122,.08); }
+  .badge-gold   { color: var(--accent2); border-color: var(--accent2); background: rgba(200,169,110,.08); }
+  .badge-blue   { color: var(--accent3); border-color: var(--accent3); background: rgba(110,155,184,.08); }
+  .badge-red    { color: var(--danger);  border-color: var(--danger);  background: rgba(200,110,110,.08); }
+
+  /* ─── MAIN LAYOUT ─────────────────────────────── */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2.5rem 5rem;
+  }
+
+  /* ─── SECTION LABEL ───────────────────────────── */
+  .sec-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 2.8rem 0 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+  }
+  .sec-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ─── KEY CARDS ───────────────────────────────── */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: .5rem;
+  }
+  .kpi-card {
+    background: var(--surface);
+    padding: 1.4rem 1.5rem;
+  }
+  .kpi-val {
+    font-family: var(--mono);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--lead);
+    line-height: 1;
+    margin-bottom: .5rem;
+  }
+  .kpi-label {
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  /* ─── MODULE CARDS ────────────────────────────── */
+  .module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .module-card {
+    background: var(--panel);
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: background .2s;
+  }
+  .module-card:hover { background: var(--surface); }
+  .module-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+  }
+  .module-card.m1::before { background: var(--accent); }
+  .module-card.m2::before { background: var(--accent2); }
+  .module-card.m3::before { background: var(--accent3); }
+  .module-card.m4::before { background: var(--danger); }
+
+  .module-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .6rem;
+  }
+  .module-title {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--lead);
+    margin-bottom: .9rem;
+    letter-spacing: -.01em;
+  }
+  .module-body {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+  }
+  .module-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-bottom: 1.2rem;
+  }
+  .module-list li {
+    font-size: 14.5px;
+    padding-left: 1.1rem;
+    position: relative;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .module-list li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .highlight-box {
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--border-hi);
+    border-left: 2px solid;
+    padding: 1rem 1.1rem;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.65;
+    margin-top: .8rem;
+  }
+  .highlight-box.hb-green  { border-left-color: var(--accent); }
+  .highlight-box.hb-gold   { border-left-color: var(--accent2); }
+  .highlight-box.hb-blue   { border-left-color: var(--accent3); }
+  .highlight-box.hb-red    { border-left-color: var(--danger); }
+
+  .hb-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+  }
+  .hb-title.t-green  { color: var(--accent);  }
+  .hb-title.t-gold   { color: var(--accent2); }
+  .hb-title.t-blue   { color: var(--accent3); }
+  .hb-title.t-red    { color: var(--danger);  }
+
+  /* ─── NORMAS TABLE ────────────────────────────── */
+  .normas-table-wrap {
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  thead tr {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  thead th {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 1rem 1.3rem;
+    text-align: left;
+    white-space: nowrap;
+  }
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background .15s;
+  }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--panel); }
+  tbody td {
+    padding: 1.1rem 1.3rem;
+    font-size: 14px;
+    color: var(--text);
+    vertical-align: top;
+  }
+  .td-norm {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--lead);
+  }
+  .td-status {
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: .2rem .6rem;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .st-vigente  { background: rgba(126,184,122,.12); color: var(--accent);  }
+  .st-parcial  { background: rgba(200,169,110,.12); color: var(--accent2); }
+  .st-decreto  { background: rgba(110,155,184,.12); color: var(--accent3); }
+
+  /* ─── SECTORES GRID ───────────────────────────── */
+  .sectores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .sector-cell {
+    background: var(--surface);
+    padding: 1rem 1.1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: .6rem;
+    transition: background .15s;
+  }
+  .sector-cell:hover { background: var(--panel); }
+  .sector-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: .1rem;
+  }
+  .sector-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--lead);
+    letter-spacing: -.01em;
+  }
+  .sector-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: .2rem;
+  }
+
+  /* ─── TIMELINE ────────────────────────────────── */
+  .timeline {
+    border-left: 2px solid var(--border);
+    margin-left: .5rem;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .tl-item {
+    position: relative;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -1.85rem;
+    top: .35rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid var(--border-hi);
+    background: var(--bg);
+  }
+  .tl-item.tl-hi::before { border-color: var(--accent); background: var(--accent); }
+  .tl-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .3rem;
+  }
+  .tl-norm {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: .3rem;
+  }
+  .tl-body {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  /* ─── ALERTA CRÍTICA ──────────────────────────── */
+  .alerta-critica {
+    border: 1px solid var(--danger);
+    background: rgba(200,110,110,.05);
+    padding: 1.6rem 1.8rem;
+    margin-top: .5rem;
+  }
+  .alerta-header {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    margin-bottom: .9rem;
+  }
+  .alerta-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--danger);
+    flex-shrink: 0;
+    animation: pulse-red 2s infinite;
+  }
+  @keyframes pulse-red {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .3; }
+  }
+  .alerta-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--danger);
+  }
+  .alerta-body {
+    font-size: 15.5px;
+    color: var(--text);
+    line-height: 1.8;
+    font-family: var(--serif);
+    font-style: italic;
+  }
+  .alerta-items {
+    list-style: none;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+  .alerta-items li {
+    font-size: 14px;
+    color: var(--danger);
+    padding-left: 1.3rem;
+    position: relative;
+    opacity: .85;
+    font-family: var(--mono);
+  }
+  .alerta-items li::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    font-size: 10px;
+  }
+
+  /* ─── DOIS COLUMNAS ───────────────────────────── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  @media (max-width: 640px) {
+    .two-col { grid-template-columns: 1fr; }
+    .header-nav { display: none; }
+    .hero { padding: 3rem 1.2rem 2rem; }
+    .main  { padding: 0 1.2rem 4rem; }
+    .site-header { padding: 0 1.2rem; }
+    .two-col .module-card { padding: 1.4rem; }
+  }
+  .two-col .module-card {
+    background: var(--panel);
+  }
+  .two-col .module-card:hover { background: var(--surface); }
+
+  /* ─── FOOTER ──────────────────────────────────── */
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 1.6rem 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .8rem;
+  }
+  .footer-note {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .1em;
+    color: var(--muted);
+  }
+  .footer-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ───────────────────────────────────────── -->
+<header class="site-header">
+  <span class="header-brand">ER · Argentina</span>
+  <div class="header-sep"></div>
+  <nav>
+    <ul class="header-nav">
+      <li><a href="#marco">Marco</a></li>
+      <li><a href="#modulos">Módulos</a></li>
+      <li><a href="#sectores">Sectores</a></li>
+      <li><a href="#normativa">Normativa</a></li>
+      <li><a href="#timeline">Historial</a></li>
+      <li><a href="#riesgos">Riesgos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ─── HERO ─────────────────────────────────────────── -->
+<section class="hero">
+  <p class="hero-eyebrow">Marco Normativo · Actualizado al 11/06/2026</p>
+  <h1 class="hero-title">Economías Regionales<br><em>en Argentina</em></h1>
+  <p class="hero-sub">
+    Síntesis técnica del entramado legal que estructura la promoción, el alivio fiscal y la organización del trabajo agroindustrial extraPampeano. Cubre la Ley 27.734, el Decreto 38/2025 y los marcos conexos de modernización laboral (Ley 27.742).
+  </p>
+  <div class="normas-strip">
+    <span class="badge badge-green">Ley 27.734 · Vigente</span>
+    <span class="badge badge-green">Dec. 38/2025 · Retenciones 0%</span>
+    <span class="badge badge-blue">Ley 27.742 · Moderniz. Laboral</span>
+    <span class="badge badge-gold">Dec. 519/2023 · Promulgación Parcial</span>
+    <span class="badge badge-gold">Dec. 439/2025 · Prórroga</span>
+    <span class="badge badge-red">Dec. 526/2025 · Consolidación</span>
+  </div>
+</section>
+
+<main class="main">
+
+  <!-- ─── KPIs ─────────────────────────────────────── -->
+  <div id="marco" class="sec-label">Indicadores del marco</div>
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-val" style="color:var(--accent)">0%</div>
+      <div class="kpi-label">Retenciones ER · Dec. 38/2025 · permanente</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val" style="color:var(--accent2)">10 años</div>
+      <div class="kpi-label">Horizonte del régimen · Ley 27.734</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">+u$s 1.100M</div>
+      <div class="kpi-label">Exportaciones ER afectadas · 2024</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val" style="color:var(--accent3)">u$s 800M</div>
+      <div class="kpi-label">Costo fiscal est. · retenciones 0% ER</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">MiPyMEs</div>
+      <div class="kpi-label">Sujetos beneficiarios · Leyes 24.467 y 27.264</div>
+    </div>
+  </div>
+
+  <!-- ─── MÓDULOS ───────────────────────────────────── -->
+  <div id="modulos" class="sec-label">Módulos técnicos del régimen</div>
+  <div class="module-grid">
+
+    <!-- M1 -->
+    <div class="module-card m1">
+      <p class="module-num">Módulo 01 · Definición y sujetos</p>
+      <h2 class="module-title">Delimitación de actividades y beneficiarios</h2>
+      <p class="module-body">
+        El marco legal rompe con el sesgo pampeano e identifica quirúrgicamente qué actividades califican como ER, anclando la elegibilidad en la geografía productiva y el eslabonamiento de valor.
+      </p>
+      <ul class="module-list">
+        <li><strong>Definición core:</strong> actividades agrícolas, agroindustriales o agrobioindustriales (no extensivas) cuya producción e industrialización ocurren en zonas extra-pampeanas.</li>
+        <li><strong>Sujetos:</strong> personas humanas, jurídicas y cooperativas categorizadas como MiPyME (Leyes N° 24.467 y N° 27.264), con domicilio legal y fiscal en el país.</li>
+        <li><strong>Ancla registral:</strong> la clasificación se ata al código CLAE declarado ante ARCA (ex-AFIP).</li>
+        <li><strong>Eslabonamiento obligatorio:</strong> no basta producir la materia prima; se premia el procesamiento en la región de origen.</li>
+      </ul>
+      <div class="highlight-box hb-green">
+        <p class="hb-title t-green">Punto de atención</p>
+        El requisito de eslabonamiento regional es el filtro anti-evasión del beneficio; importa dónde se transforma el producto, no solo dónde se extrae.
+      </div>
+    </div>
+
+    <!-- M2 -->
+    <div class="module-card m2">
+      <p class="module-num">Módulo 02 · Alivio fiscal</p>
+      <h2 class="module-title">Costos, compensaciones e incentivos tributarios</h2>
+      <p class="module-body">
+        El nudo gordiano siempre fue la asimetría logística frente al hub portuario bonaerense. El régimen combina incentivos en Ganancias, Bonos de Crédito Fiscal y —vía Dec. 38/2025— la eliminación permanente de retenciones.
+      </p>
+      <ul class="module-list">
+        <li><strong>Retenciones 0% permanente</strong> (Dec. 38/2025): azúcar, algodón, cuero bovino, tabaco, foresto-industria y arroz, entre otros.</li>
+        <li><strong>Bonos de Crédito Fiscal</strong> (art. 7° y 8° Ley 27.734): computables contra contribuciones patronales devengadas; cancelables contra tributos nacionales.</li>
+        <li><strong>Amortización acelerada:</strong> inversiones de capital que tecnifiquen procesos regionales.</li>
+        <li><strong>Compensación de costos críticos:</strong> combustibles, energía para riego, fertilizantes y plaguicidas con altas de precio que vulneren la rentabilidad en origen.</li>
+        <li><strong>Polos Agroalimentarios:</strong> clústeres público-privados para centralizar logística y acceso a mercados internacionales.</li>
+      </ul>
+      <div class="highlight-box hb-gold">
+        <p class="hb-title t-gold">Key point exportador</p>
+        El Dec. 38/2025 exige liquidación anticipada del 95% de divisas en plazo de 15 días hábiles para acceder al beneficio de alícuota cero.
+      </div>
+    </div>
+
+    <!-- M3 -->
+    <div class="module-card m3">
+      <p class="module-num">Módulo 03 · Trabajo y capital humano</p>
+      <h2 class="module-title">Organización laboral y arraigo regional</h2>
+      <p class="module-body">
+        La interacción con la Ley 27.742 (Modernización Laboral) reconfiguró el módulo laboral, introduciendo flexibilización pensada para los ciclos de cosecha/zafra sin destruir el margen operativo de las PyMEs del interior.
+      </p>
+      <ul class="module-list">
+        <li><strong>Banco de horas:</strong> esquemas negociados colectiva o individualmente por escrito, para absorber picos estacionales sin penalizaciones extraordinarias.</li>
+        <li><strong>Compatibilización planes sociales:</strong> coexistencia legal de planes asistenciales con contratación formal durante cosecha; vector de blanqueo de informalidad estructural.</li>
+        <li><strong>Reducción de litigiosidad:</strong> baja drástica de multas por registración deficiente, riesgo histórico del sector PyME agroindustrial.</li>
+        <li><strong>Incentivos al arraigo:</strong> subsidios de formación y tecnificación con prioridad para jóvenes y mujeres en zonas de menor desarrollo relativo.</li>
+      </ul>
+      <div class="highlight-box hb-blue">
+        <p class="hb-title t-blue">Nexo normativo clave</p>
+        Cap. V (Trabajo Agrario) de la Ley 27.742 y su reglamentación vía Dec. 847/2024 son el vehículo específico de estas disposiciones laborales para el sector.
+      </div>
+    </div>
+
+    <!-- M4 -->
+    <div class="module-card m4">
+      <p class="module-num">Módulo 04 · Diferenciación y mercados</p>
+      <h2 class="module-title">Denominaciones de origen y acceso a mercados premium</h2>
+      <p class="module-body">
+        El régimen eleva el peso legal de las herramientas de diferenciación geográfica, conectando la producción regional con los mercados internacionales de mayor valor agregado y menor elasticidad-precio.
+      </p>
+      <ul class="module-list">
+        <li><strong>Indicaciones Geográficas (IG):</strong> mayor reconocimiento legal para distinguir origen en mercados premium globales.</li>
+        <li><strong>Denominaciones de Origen (DO):</strong> protección reforzada del vínculo territorio–producto como activo competitivo.</li>
+        <li><strong>Certificaciones orgánicas (Ley 27.734):</strong> ANR para nuevos productores y elaboradores; régimen de 10 años desde oct. 2023.</li>
+        <li><strong>Fondo de Promoción del Producto Orgánico:</strong> administrado por la Secretaría de Agricultura, Ganadería y Pesca; max. 5% en gastos de administración.</li>
+        <li><strong>Preferencia en financiamiento:</strong> regiones con menor desarrollo relativo, inclusión de mujeres y jóvenes, incremento exportador.</li>
+      </ul>
+      <div class="highlight-box hb-red">
+        <p class="hb-title t-red">Brecha de implementación</p>
+        Las IG y DO exigen masa crítica institucional (consejos reguladores, sistemas de control de origen) que en muchas cadenas regionales todavía no existe a escala operativa.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ─── SECTORES ───────────────────────────────────── -->
+  <div id="sectores" class="sec-label">Sectores alcanzados por el régimen</div>
+  <div class="sectores-grid">
+    <div class="sector-cell"><span class="sector-icon">🍇</span><div><div class="sector-name">Vitivinicultura</div><div class="sector-sub">Mendoza, San Juan, Río Negro</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🫒</span><div><div class="sector-name">Olivicultura</div><div class="sector-sub">La Rioja, San Juan, Catamarca</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🍊</span><div><div class="sector-name">Citricultura</div><div class="sector-sub">Tucumán, Jujuy, Corrientes</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🍎</span><div><div class="sector-name">Fruticultura de pepita</div><div class="sector-sub">Río Negro, Neuquén</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🍑</span><div><div class="sector-name">Fruticultura de carozo</div><div class="sector-sub">Mendoza, San Juan</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🌿</span><div><div class="sector-name">Yerbatera</div><div class="sector-sub">Misiones, Corrientes</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🍵</span><div><div class="sector-name">Tealera</div><div class="sector-sub">Misiones</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🚬</span><div><div class="sector-name">Tabacalera</div><div class="sector-sub">Jujuy, Salta, Misiones</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🌲</span><div><div class="sector-name">Foresto-industria</div><div class="sector-sub">Misiones, Corrientes, Chaco</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🍯</span><div><div class="sector-name">Apicultura</div><div class="sector-sub">Entre Ríos, Buenos Aires (extra)</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🌾</span><div><div class="sector-name">Legumbres / Chía</div><div class="sector-sub">Salta, Jujuy</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🌱</span><div><div class="sector-name">Quinoa / Amaranto</div><div class="sector-sub">NOA andino</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🌿</span><div><div class="sector-name">Cultivos andinos</div><div class="sector-sub">Jujuy, Catamarca, Salta</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🐄</span><div><div class="sector-name">Cuero bovino</div><div class="sector-sub">Nacional (Dec. 38/2025)</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🍚</span><div><div class="sector-name">Arroz</div><div class="sector-sub">Corrientes, Entre Ríos</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🧵</span><div><div class="sector-name">Algodón</div><div class="sector-sub">Chaco, Santiago del Estero</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🍬</span><div><div class="sector-name">Azúcar</div><div class="sector-sub">Tucumán, Salta, Jujuy</div></div></div>
+    <div class="sector-cell"><span class="sector-icon">🧪</span><div><div class="sector-name">Producción orgánica</div><div class="sector-sub">Ley 27.734 · todas las regiones</div></div></div>
+  </div>
+
+  <!-- ─── NORMATIVA ─────────────────────────────────── -->
+  <div id="normativa" class="sec-label">Matriz normativa</div>
+  <div class="normas-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Norma</th>
+          <th>Denominación</th>
+          <th>Sanción</th>
+          <th>BO</th>
+          <th>Vigencia</th>
+          <th>Estado</th>
+          <th>Modificaciones relevantes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-norm">Ley 27.734</td>
+          <td>Promoción de la Producción Orgánica para Economías Regionales</td>
+          <td>28/09/2023</td>
+          <td>12/10/2023 · BO 35277</td>
+          <td>10 años desde BO</td>
+          <td><span class="td-status st-parcial">Promulgación parcial</span></td>
+          <td>Promulgación parcial vía Dec. 519/2023; la observación recayó sobre cláusulas presupuestarias. Última actualización registrada en Infoleg: 04/04/2026. Sin reformas de fondo al cuerpo principal.</td>
+        </tr>
+        <tr>
+          <td class="td-norm">Dec. 519/2023</td>
+          <td>Promulgación parcial de Ley 27.734</td>
+          <td>11/10/2023</td>
+          <td>12/10/2023</td>
+          <td>Permanente</td>
+          <td><span class="td-status st-vigente">Vigente</span></td>
+          <td>Observó artículos de erogaciones presupuestarias automáticas. El Ejecutivo promulgó el núcleo de beneficios fiscales y el régimen de certificación orgánica.</td>
+        </tr>
+        <tr>
+          <td class="td-norm">Ley 27.742</td>
+          <td>Ley de Bases y Puntos de Partida (Títulos IV, V y Cap. V trabajo agrario)</td>
+          <td>27/06/2024</td>
+          <td>08/07/2024 · BO 35456</td>
+          <td>Permanente</td>
+          <td><span class="td-status st-vigente">Vigente</span></td>
+          <td>Reglamentada en aspectos laborales por Dec. 847/2024 (BO 26/09/2024) y en empleo público por Dec. 695/2024.</td>
+        </tr>
+        <tr>
+          <td class="td-norm">Dec. 847/2024</td>
+          <td>Reglamentación Títulos IV y V de Ley 27.742 (Modernización Laboral y Trabajo Agrario)</td>
+          <td>—</td>
+          <td>26/09/2024</td>
+          <td>Permanente</td>
+          <td><span class="td-status st-vigente">Vigente</span></td>
+          <td>Operativizó banco de horas, fondo de cese y compatibilización de planes en el trabajo agrario. Sin modificaciones posteriores conocidas.</td>
+        </tr>
+        <tr>
+          <td class="td-norm">Dec. 38/2025</td>
+          <td>Derechos de exportación: retenciones 0% permanente para ER y reducción temporal granos</td>
+          <td>25/01/2025</td>
+          <td>27/01/2025</td>
+          <td>ER: permanente · Granos: hasta 30/06/2025</td>
+          <td><span class="td-status st-decreto">Decreto PEN</span></td>
+          <td>Modificado y prorrogado sucesivamente por Dec. 439/2025 (26/06/2025) y Dec. 526/2025 (30/07/2025) que consolidaron el 0% para ER y extendieron la baja de granos. Condicionado a liquidación del 95% de divisas en 15 días hábiles vía DJVE.</td>
+        </tr>
+        <tr>
+          <td class="td-norm">Dec. 439/2025</td>
+          <td>Prórroga y modificación del Dec. 38/2025</td>
+          <td>—</td>
+          <td>26/06/2025</td>
+          <td>—</td>
+          <td><span class="td-status st-vigente">Vigente</span></td>
+          <td>Extendió beneficios y amplió categorías NCM alcanzadas.</td>
+        </tr>
+        <tr>
+          <td class="td-norm">Dec. 526/2025</td>
+          <td>Consolidación del régimen de 0% para ER y lácteos/porcinos</td>
+          <td>—</td>
+          <td>30/07/2025</td>
+          <td>Permanente</td>
+          <td><span class="td-status st-vigente">Vigente</span></td>
+          <td>Consolidó el cero para ER junto con extensión a productos lácteos y porcinos. Última norma relevante del ciclo regulatorio 2025.</td>
+        </tr>
+        <tr>
+          <td class="td-norm">Ley 25.127</td>
+          <td>Producción Ecológica, Biológica u Orgánica (ley marco base)</td>
+          <td>1999</td>
+          <td>—</td>
+          <td>Permanente</td>
+          <td><span class="td-status st-vigente">Vigente</span></td>
+          <td>Ley marco que sirve de base técnica a la Ley 27.734. No fue modificada en el período reciente.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─── TIMELINE ──────────────────────────────────── -->
+  <div id="timeline" class="sec-label">Historial de modificaciones · 2023–2026</div>
+  <div class="two-col" style="gap:0;border:none;background:transparent;">
+    <div style="background:var(--panel);border:1px solid var(--border);padding:1.8rem 2rem;">
+      <div class="timeline">
+        <div class="tl-item tl-hi">
+          <p class="tl-date">Septiembre 2023</p>
+          <p class="tl-norm">Ley 27.734 · Sanción</p>
+          <p class="tl-body">El Congreso sanciona la Ley de Promoción de la Producción Orgánica para ER. Primer cuerpo normativo específico del sector con régimen de beneficios fiscales propios.</p>
+        </div>
+        <div class="tl-item tl-hi">
+          <p class="tl-date">Octubre 2023</p>
+          <p class="tl-norm">Dec. 519/2023 · Promulgación parcial</p>
+          <p class="tl-body">El PEN promulga parcialmente la ley, observando artículos de erogaciones presupuestarias automáticas. El régimen de BCF y certificación orgánica queda operativo.</p>
+        </div>
+        <div class="tl-item">
+          <p class="tl-date">Enero 2024</p>
+          <p class="tl-norm">Debate retenciones en Ley Ómnibus</p>
+          <p class="tl-body">Presión de 10 gobernadores frena suba de retenciones a ER. La BCR estimó un impacto potencial de u$s 504 M sobre ER. El sector denuncia "vacío legal" en la redacción.</p>
+        </div>
+        <div class="tl-item tl-hi">
+          <p class="tl-date">Junio–Julio 2024</p>
+          <p class="tl-norm">Ley 27.742 + Dec. 847/2024</p>
+          <p class="tl-body">La Ley de Bases sanciona modernización laboral. Cap. V (Trabajo Agrario) introduce banco de horas y compatibilización de planes. Reglamentado en septiembre.</p>
+        </div>
+        <div class="tl-item tl-hi">
+          <p class="tl-date">Enero 2025</p>
+          <p class="tl-norm">Dec. 38/2025 · Retenciones 0% ER</p>
+          <p class="tl-body">Hito clave del período: retenciones a ER reducidas permanentemente al 0%. Azúcar, algodón, tabaco, foresto-industria, arroz y cuero bovino encabezan la lista. Costo fiscal: ~u$s 800M.</p>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--panel);border:1px solid var(--border);border-left:none;padding:1.8rem 2rem;">
+      <div class="timeline">
+        <div class="tl-item">
+          <p class="tl-date">Agosto 2024</p>
+          <p class="tl-norm">Dec. 697/2024 · NCM agropecuario</p>
+          <p class="tl-body">Ajuste de posiciones arancelarias en la Nomenclatura Común del MERCOSUR para productos agropecuarios. Antecedente directo del Dec. 38/2025.</p>
+        </div>
+        <div class="tl-item tl-hi">
+          <p class="tl-date">Junio 2025</p>
+          <p class="tl-norm">Dec. 439/2025 · Prórroga</p>
+          <p class="tl-body">Extiende el beneficio de alícuota reducida para granos y amplía categorías NCM de ER alcanzadas. Mantiene condición de 95% de liquidación de divisas.</p>
+        </div>
+        <div class="tl-item tl-hi">
+          <p class="tl-date">Julio 2025</p>
+          <p class="tl-norm">Dec. 526/2025 · Consolidación</p>
+          <p class="tl-body">Consolida definitivamente el 0% para ER. Extiende el beneficio a lácteos y porcinos. Hito de cierre del ciclo regulatorio 2024–2025 para ER.</p>
+        </div>
+        <div class="tl-item">
+          <p class="tl-date">Abril 2026</p>
+          <p class="tl-norm">Ley 27.734 · Actualización Infoleg</p>
+          <p class="tl-body">Última actualización registrada en la base oficial (04/04/2026). No hay reformas de fondo al cuerpo principal de la norma; el régimen de BCF y certificación se mantiene inalterado.</p>
+        </div>
+        <div class="tl-item">
+          <p class="tl-date">Horizonte 2033</p>
+          <p class="tl-norm">Vencimiento del régimen · Ley 27.734</p>
+          <p class="tl-body">El régimen de promoción orgánica opera por 10 años desde el 12/10/2023. Sin renovación legislativa, caduca en octubre de 2033.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── RIESGOS ────────────────────────────────────── -->
+  <div id="riesgos" class="sec-label">Riesgos y restricciones estructurales</div>
+  <div class="alerta-critica">
+    <div class="alerta-header">
+      <div class="alerta-dot"></div>
+      <p class="alerta-title">Lupa escéptica · Restricciones no normativas</p>
+    </div>
+    <p class="alerta-body">
+      El éxito del andamiaje normativo no depende de la calidad técnica de su redacción, sino de la macro general y de la resolución de cuellos de botella exógenos al régimen. Mientras persistan las siguientes distorsiones, el beneficio fiscal opera como paliativo de ineficiencias estructurales, no como catalizador genuino de competitividad.
+    </p>
+    <ul class="alerta-items">
+      <li>Distorsiones cambiarias de fondo: el tipo de cambio efectivo erosiona márgenes independientemente del alivio retentivo.</li>
+      <li>Infraestructura de transporte obsoleta: ferrocarriles de carga sin inversión sostenida; el costo logístico terminal sigue siendo el principal handicap competitivo extra-pampeano.</li>
+      <li>Brecha de implementación institucional en IG y DO: sin masa crítica regulatoria, las herramientas de diferenciación geográfica son nominales.</li>
+      <li>Riesgo de reversibilidad regulatoria: los decretos de retenciones son herramientas discrecionales del PEN; no tienen rango legal y pueden modificarse sin el Congreso.</li>
+      <li>Informalidad estructural residual: la compatibilización de planes sociales con empleo formal requiere capacidad de control del ARCA que históricamente ha sido insuficiente en zonas rurales.</li>
+      <li>Liquidez del Fondo de Promoción Orgánica: el art. 13 de la Ley 27.734 fue parcialmente observado; la fuente de financiamiento del Fondo depende de asignaciones presupuestarias anuales, volátiles por definición.</li>
+    </ul>
+  </div>
+
+  <!-- ─── SÍNTESIS ───────────────────────────────────── -->
+  <div class="sec-label">Síntesis ejecutiva</div>
+  <div class="two-col">
+    <div class="module-card" style="border-top:2px solid var(--accent)">
+      <p class="module-num" style="color:var(--accent)">Lo que hace bien</p>
+      <ul class="module-list" style="margin-top:.6rem">
+        <li>Rompe el sesgo pampeano con definición geográfica explícita y registro CLAE obligatorio.</li>
+        <li>La retención cero permanente (Dec. 38/2025) es la medida de impacto inmediato más relevante en años para los sectores alcanzados.</li>
+        <li>La modernización laboral del trabajo agrario (Ley 27.742 / Cap. V) aporta previsibilidad jurídica real a PyMEs del interior.</li>
+        <li>El régimen de producción orgánica (Ley 27.734) es el único marco con horizonte decenal explícito; eso da certidumbre para inversiones de mediano plazo en certificación.</li>
+        <li>Los Polos Agroalimentarios y las herramientas de diferenciación (IG/DO) son conceptualmente correctos como política de competitividad.</li>
+      </ul>
+    </div>
+    <div class="module-card" style="border-top:2px solid var(--danger)">
+      <p class="module-num" style="color:var(--danger)">Lo que falta o falla</p>
+      <ul class="module-list" style="margin-top:.6rem">
+        <li>La promulgación parcial de la Ley 27.734 generó un Fondo de Promoción con financiamiento incierto desde el día uno.</li>
+        <li>Los beneficios de retenciones vía decreto carecen del rango legal necesario para constituir certidumbre inversora de largo plazo.</li>
+        <li>No existe aún un organismo rector transversal de ER con mandato y presupuesto propios; la gobernanza sigue fragmentada en secretarías.</li>
+        <li>La infraestructura logística (trenes de carga, puertos secos, corredores multimodales) sigue siendo la variable de mayor impacto y la menos atendida por el marco normativo sectorial.</li>
+        <li>El Consejo Asesor Nacional previsto en los proyectos originales de ER nunca fue integrado con plenitud operativa.</li>
+      </ul>
+    </div>
+  </div>
+
+</main>
+
+<!-- ─── FOOTER ────────────────────────────────────────── -->
+<footer class="site-footer">
+  <span class="footer-note">Elaborado con fuentes oficiales: Infoleg · BORA · Argentina.gob.ar · Jun 2026</span>
+  <span class="footer-tag">Normas base: Ley 27.734 · Ley 27.742 · Dec. 38/2025 · Dec. 526/2025</span>
+</footer>
+
+</body>
+</html>
